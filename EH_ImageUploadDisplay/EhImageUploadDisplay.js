@@ -114,10 +114,6 @@ class EhImageUploadDisplay {
       }
     }
 
-    // checking if the image display is empty
-    if (this.imageDisplay.children.length === 0) {
-      this.imageDisplay.classList.remove("show");
-    }
   }
 
   // function to display single item
@@ -139,13 +135,8 @@ class EhImageUploadDisplay {
 
   addDisplayItems(files) {
     if (files.length > 0) {
-      this.imageDisplay.classList.add("show");
       for (let file of files) {
         this.imageDisplay.appendChild(this.createDisplayItem(file));
-      }
-    } else {
-      if (this.imageDisplay.children.length === 0) {
-        this.imageDisplay.classList.remove("show");
       }
     }
 
@@ -161,13 +152,6 @@ class EhImageUploadDisplay {
         let altImgDisplay = altDisplay.querySelector(".eh_img-display");
         altImgDisplay.innerHTML = "";
         altImgDisplay.appendChild(this.createDisplayItem(file, true));
-        altImgDisplay.classList.add("show");
-      });
-    } else {
-      this.altDisplays.forEach((altDisplay) => {
-        if (altDisplay.children.length === 0) {
-          altDisplay.classList.remove("show");
-        }
       });
     }
   }
@@ -176,17 +160,11 @@ class EhImageUploadDisplay {
   addItemsToAltDisplay(files) {
     if (files.length > 0) {
       this.altDisplays.forEach((altDisplay) => {
-        altDisplay.querySelector(".eh_img-display").classList.add("show");
+        // altDisplay.querySelector(".eh_img-display").classList.add("show");
         for (let file of files) {
           altDisplay
             .querySelector(".eh_img-display")
             .appendChild(this.createDisplayItem(file, true));
-        }
-      });
-    } else {
-      this.altDisplays.forEach((altDisplay) => {
-        if (altDisplay.querySelector(".eh_img-display").children.length === 0) {
-          altDisplay.querySelector(".eh_img-display").classList.remove("show");
         }
       });
     }
@@ -203,10 +181,6 @@ class EhImageUploadDisplay {
           altDisplayItems[i].remove();
           break;
         }
-      }
-      // checking if there are no more children in alternate display
-      if (altDisplayItems.length === 0) {
-        altDisplay.querySelector(".eh_img-display").classList.remove("show");
       }
     });
   }

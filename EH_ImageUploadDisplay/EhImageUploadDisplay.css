@@ -40,10 +40,11 @@
   display: none;
   text-align: center;
   white-space: nowrap;
+  display: block;
 }
 
-.eh_img-display.show {
-  display: block;
+.eh_img-display:empty{
+  display: none;
 }
 
 .eh_img-display .eh_img-display-item {
